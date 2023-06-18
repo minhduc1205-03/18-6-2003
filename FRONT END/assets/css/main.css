@@ -1,0 +1,382 @@
+/* có ba cách để sử dụng css ở trong file html
+-internal: cách này thì ta viết trực tiếp css ở trong file
+index.html bằng cách thêm một cặp thẻ style vào trong thẻ head
+sau đó chúng ta sẽ viết code vào trong cặp thẻ style đó
+-external: cách này thì ta tạo ra một file main.css rồi ta viết code
+css ở trong file này sau đó ở trong file html thì ta thêm một cặp thẻ
+<link ref= "stylesheet" href = "main.css" */
+
+
+
+
+
+/*css selector sẽ bao gồm id và class, css selector là cách để ta có thể 
+lấy được các element(ví dụ như h1, p được gọi là các element) ra để css
+trong css thì id thì ra sẽ dùng dấu # ở trước id còn ta sẽ dùng dấu . ở trước class
+ví dụ <a id= "name" thì trong css sẽ là #name {
+  id thì chỉ được dùng một lần nếu mà ta có 3 cái element giống nhau nhưng chỉ 
+  muốn css cho một cái thfi ta sẽ dùng id còn khi ta có nhiều element giống nhau
+mà ta muốn css cho cả 3 thì ta sẽ dùng class
+
+
+có thể lựa chọn 2 class ngang hàng nhau bằng cách .class1.class2
+ta viết 2 cái class này liền nhau
+có thể lựa chọn css cho 1 thẻ là con của 1 thẻ cha ta viết .class1 .class2
+thì lúc này class2 là thẻ con của class1 giữa 2 class có một dấu cách
+đoạn code nào được viết trước thì sẽ được thưucj thi trước còn nếu muốn viết 
+sau mà vẫn được chạy trc thì dùng !important*/
+
+
+/* cách sử dụng biến trong css trong css đôi lúc ta sử dụng biến sẽ dễ dàng cho việc thay đổi chỉnh sửa sau này
+:root {
+  --text-color: red;
+ }
+ lúc này ta đã khai báo một biến có tên là text-color 
+đến khi css ta viết h1{
+  color:var(--text-color);sau này muốn chuyển màu ta không cần đi đến từng cái để chuyển chỉ cần chuyển màu cho biến text-color
+} */
+
+
+/* các đơn vị trong css
+1.px
+2.% nó phụ thuộc vào thẻ chứa nó mặc định là thẻ cha của nó 
+3.vw (viewport width) 50vw= 50% kích thước của trình duyệt
+về chiều rộng thì các thẻ body div mặc định chiều rộng là 100% */
+
+
+/* Một số hàm trong css
+1.rgb(red, green, blue) các giá trị này sẽ chạy từ 0 đến 255
+và cái rgb này được dùng cho background
+2.calc(dùng để tính toán ) ví dụ width: calc(20px+ 20px) 
+3.hover khi ta hover thì khi bấm chuột vào đối tượng thì sẽ xảy ra hiện tượng
+4.active cũng hoạt động giống như hover nhưng mà ta phải bấm và giữ con chuột ở đối tượng
+5.first-child ví dụ như thẻ ul có nhiều thẻ đầu tiên thì ta dùng li:first=child được hiều là
+ta lấy cái thẻ li đầu tiên
+6.rgba: cái a là độ trong suốt giá trị chạy từ 0 đến 1*/
+
+
+/* content--->padding(đệm)--->border(viển)--->margin(khoảng)
+1.padding(đệm)
+padding:1 giá trị là tăng kích thước cả 4 hướng 
+2 giá trị là tăng kích thước (trên+dưới) (trái+phải)
+3 giá trị là tăng kích thước (trên) (trái+phải) (dưới)
+4 giá trị là tăng kích thước (trên) (phải) (dưới) (trái)
+
+
+padding có tác dụng tạo ra khoảng cách giữa content và các thanh bao bọc content
+padding sẽ làm tăng độ dài độ rộng của cái box bao bọc content giả sử ban đầu box là 30x30
+sau khi padding:10px thì kích thước mới của box là 40x40
+*/
+
+
+/* border
+
+border-width: độ dày của cái viền (thường thì ta sử dụng px )
+border-style : solid(nét liền), 
+border-color: màu sắc 
+border-radius: dùng để bo góc nếu dùng 50% thì nó là hình tròn
+
+cách viết tắt border: 10px solid black*/
+
+
+/* thuộc tính background-image
+
+background-image: url("") ; bên trong url ta sẽ truyền một link của một hình ảnh nào đó 
+nhưng nó có một thuộc tính mặc định là lặp lại ảnh nhiều lần 
+muốn nó không lặp lại thì ta dùng background-repeat: no-repeat*/
+
+
+/* css position(vị trí)
+
+1.position: relative(tương đối)
+
+dòng1: fdjfaldjfaldfjaldfkjadf      (A)
+dòng2: kjdaklfjda    (B)
+
+nếu ta dùng margin lên B thì kh thể dùng được margin-bottom
+do dòng 1 và dòng 2 cùng nằm trên một mặt phẳng
+tương tự như ta dùng margin-top lên dòng A thì cùng không thể dùng được 
+
+
+còn khi ta dùng position lên A thì lúc này ta có thể thay đổi vị trí dòng A
+về cả 4 phía bằng cú pháp top right bottom left. Khi ta dùng position lên A 
+có nghĩa là A đã nằm trên một mặt phẳng mới và mặt phẳng nằm trên mặt phẳng chứa B
+
+do lúc này do mặt phẳng chưá A nằm trên mặt phẳng chứa B nên 
+nếu ta dùng position ở dòng A và dùng top: 30px thì dòng A sẽ lùi xuống dưới 30px 
+và chèn lên dòng B
+
+
+2.position: absolute(tuyệt đối)
+
+ta có thẻ cha là A chứa thẻ con là B( ví dụ <div><a></a><div> thì lúc này thẻ a sẽ là thẻ
+con của thẻ div ta dùng position absolute ở thẻ B 
+
+và position absolute nó phụ thuộc vào thẻ cha gần nhất có position như ví dụ trên 
+thì thẻ div phải có position thì thẻ a mới dùng được position absolute
+
+
+khi dùng position ở thẻ con thì thẻ con sẽ lấy thẻ cha làm gốc tọa độ và nó
+dịch chuyển xung quanh thẻ cha bằng cách dùng các thuộc tính top right bottom left*/
+
+
+
+/* position:fixed 
+
+ta thường dùng position fixed cho thanh header ở trên đầu để ta cố định nó 
+khi mà ta cuộn nội dung ở bên dưới thì thanh header vẫn đứng nguyên không hề bị trượt theo
+
+
+
+
+khi ta dùng position lên một element nào đó thì cái element đó sẽ nằm ở một mặt phẳng mới và
+mặt phẳng này sẽ nằm trên 1 bậc so với mặt phẳng chứa các element k có position
+*/
+
+
+/* các cách căn giữa css
+
+<div class=box>
+  <h3>centerme</h3>
+</div>
+
+
+ta css cho thẻ div có width: 100px; height: 150px; background-color: orange
+
+
+1..line-height: 150px được đặt ở thẻ cha thì cái dòng chữ centerme sẽ được nằm
+ở giữa chiều cao của 
+
+text-align:centerme do có tính chất kế thừa nên đặt ở thẻ cha cx đc đặt ở thẻ con
+cũng được cái này giúp cho chữ centerme được nằm ở giữa dòng
+
+
+2..đặt display:flex ở thẻ cha và margin: auto ở thẻ con
+
+
+3..đặt display:flex ở thẻ cha 
+align-items: center dùng để chỉnh giữa theo chiều dọc 
+justify-content: center hoặc space-between
+
+
+4.. cách này dùng position relative ở thẻ cha (div) và dùng position absolute 
+ở thẻ con(h3) lúc này thẻ con h3 sẽ nhận thẻ cha div làm gốc tọa độ
+sau đó dùng top right bottom left để có thể thay đổi vị trí của thẻ con
+
+.box{
+  position: relative
+}
+
+
+h3{
+  position:absolute;
+  top: 50%; ----->lúc này chữ centerme sẽ tụt xuống sao cho khoảng cách từ thanh ngang trên đế mép trên của chữ là 50%
+  left: 50%; ----->lúc này chữ centerme sẽ dịch chuyển sang bên phải sao cho khoảng cách thanh mép trái đến mếp bên của chữ là 50%
+  
+  
+  nhưng lúc này chữ centerme chưa nằm giữa nên ta phải chuyển cữ centerme lên trên và sang bên trái 50% so với kích thước chữ của mình
+  
+  transform: translateY(-50%) translateX(-50%) (chọn tọa độ như bình thường xy) ---->viết tắt transform: translate(-50%, -50%)
+  
+*/
+
+
+/* float là thuộc tính dùng để chuyển 1 phần tử sang bên phải hoặc bên trái không gian bao quanh nó
+
+giả sử có <p><img src="quả nhỏ">đoạn văn...</p>
+các giá trị 
+
+-float:right  gỉả sử dùng float:right ở thẻ img thì đoạn văn nằm bên trái còn hình ảnh sẽ nằm bên phải
+-float:left  giả sử dùng float:left ở thẻ imd thì đoạn văn nằm bên phải còn hình ảnh nằm bên trái
+-float:none thì hình ảnh sẽ nằm mặc định như ban đầu
+-float:inherit thì hình ảnh sẽ được kế thừa float từ thẻ cha*/
+
+
+
+/* display:inline, inline-block, block
+
+1..display:inline 
+
+khi phần tử có display inline thì nó vẫn sẽ nằm cùng một dòng với các phần từ khác
+nó chỉ xuống dòng khi dòng trên hết chỗ
+
+khi phần từ có display inline thì không thể thêm thuộc tính width, height, margin, padding 
+
+
+
+2.diplay: block
+
+
+phần tử có display:block thì sẽ nằm một mình trên một dòng riêng
+
+với phần tử có display:block thì vânx có thể thêm width, height, padding, margin như bình thường
+
+
+3.display:inline-block
+
+nó là sự kết hợp của hai cái trên phần tử có display:inline-block thì nó sẽ vẫn nằm cạnh các phần từ khác
+và vẫn có thể dử dụng width, height, padding, margin*/
+
+
+/* overflow
+
+1.visible: khi chiều cao của box không thể chứa hết các dòng text thì dòng text sẽ bị tràn ra ngoài
+
+
+2.hidden: khi chiều cao của box không thể chứa hết text thì dòng text sẽ bị dấu đi sao cho vừa vs chiều
+cao của box các dòng text bị dấu đi sẽ k được nhìn thấy nữa
+
+
+3.scoll  khi chiều cao của box không đủ để chứa hết dòng text thì dòng text sẽ bị dấu đi và sẽ xuất hiện 
+thanh cuộn ngang và dọc khi ta kéo thanh cuộn thì có thể nhìn thấy dòng text bị dấu đi
+*/
+
+
+
+/* BEM (block element modifier) đây là quy tắc đặt tên class CSS chuẩn
+.block
+.block__elements
+.block--modifier
+.block__elements-modifier */
+
+/* BOX SHADOWING
+
+box-shadow: 0 0 10px rgba(0,0,0, 0.3)
+
+0 đầu tiên là shadow chiều ngang
+0 tiếp theo là shadow chiều dọc
+10px là chỉnh độ mờ(px)
+rgba là chỉnh độ phân tán (px)*/
+
+/* background-image:url
+background-position: center
+background-size: cover \
+
+ta dùng overflow: hidden ví dụ ban đầu ta border-radius cho thẻ cha
+nhưng sau khi ta dùng thẻ cha:before thì cái cha:before sẽ đè lên 
+do đó cần phải dùng overflow hidden để những thẻ con hay những cái sau
+nó sẽ k đè lên cái thẻ cha */
+
+/* cái display flex justifycontent chỉ được đặt ở thẻ cha
+để căn giữa cho thẻ con */
+
+
+/* khi đặt một thẻ div class=row có chưa thẻ label và thẻ input
+ta sẽ đặt position:relative ở thẻ row và positon absolute ở thẻ label
+rồi đặt width height
+
+còn ở thẻ input thì ta đặt thẻ width height luôn*/
+
+/* :checked chọn tất cả các phần tử input có type checkbox hoặc radio
+
+#check:checked là chọn tất cả các phần tử input có id là check
+
+#check:checked ~ .sidebar là khi ta ấn vào input checked thì ta
+sẽ chạy cái side theo một điều kiện nào đó
+
+*/
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background: #c8e8e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__contact {
+  width: 70%;
+  background: #fff;
+  padding: 20px 60px 40px 40px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container__contact-media {
+  width: 25%;
+  height: 100%;
+  position: relative;
+}
+
+.container__contact-media::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 70%;
+  background: #afafb6aa;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.container__contact-media li i {
+  color: rgb(0, 0, 255);
+  font-size: 24px;
+}
+
+.container__contact-media .topic {
+  margin: 5px 0px;
+  font-weight: 800;
+
+}
+
+.container__contact-media .text-one,
+.container__contact-media .text-two {
+  color: #afafb6c4;
+  font-size: 14px;
+}
+
+.container__contact-media li {
+  list-style-type: none;
+  margin: 14px;
+  text-align: center;
+}
+
+.container__contact-message {
+  width: 75%;
+  height: 100%;
+  margin-left: 90px;
+}
+
+.container__contact-massage .topic-text {
+  font-size: 24px;
+  font-weight: 600;
+  color: #3e2093;
+}
+
+.input-box {
+  height: 50px;
+  width: 100%;
+  margin: 12px 0;
+  position: relative;
+
+}
+
+.input-box label {
+  position: absolute;
+  height: 100%;
+  width: 50px;
+  background-color: aquamarine;
+  text-align: center;
+  line-height: 50px;
+  border-top-left-radius: 5px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  margin-left: 45px;
+  padding-left: 20px;
+}
